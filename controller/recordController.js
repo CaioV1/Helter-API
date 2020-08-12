@@ -33,10 +33,6 @@ exports.getRecords = async(req, res, next) => {
 
     try {
 
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", true);
-
         RecordModel.find((error, record) => {
 
             if(error) return handleError(error);

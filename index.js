@@ -2,7 +2,10 @@
 const express = require("express");
 //Módulo de conversão do corpo de uma requisição
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
+
+app.use(cors());
 
 //Extende os tipos de dados aceitos no corpo da requisição
 app.use(bodyParser.urlencoded({ extended: true }));
