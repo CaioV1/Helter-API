@@ -35,7 +35,7 @@ exports.getUsers = (request, response, next) => {
     
         UserModel.find((error, user) => {
 
-            if(error) return handleError(error);
+            if(error) throw error;
 
             response.json(user).status(200);
 

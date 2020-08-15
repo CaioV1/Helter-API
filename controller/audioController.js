@@ -40,7 +40,7 @@ exports.getAudios = async (request, response, next) => {
 
         AudioModel.find((error, audio) => {
 
-            if(error) return handleError(error);
+            if(error) throw error;
 
             response.json(audio).status(200);
 
@@ -70,7 +70,7 @@ exports.getAudioByRecord = async (request, response, next) => {
 
         AudioModel.find({"record": request.params.record_id}, (error, audio) => {
 
-            if(error) return handleError(error);
+            if(error) throw error;
 
             response.json(audio).status(200);
 

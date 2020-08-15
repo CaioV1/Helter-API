@@ -35,7 +35,7 @@ exports.getRecords = async(req, res, next) => {
 
         RecordModel.find((error, record) => {
 
-            if(error) return handleError(error);
+            if(error) throw error;
 
             res.json(record).status(200);
 
@@ -65,7 +65,7 @@ exports.getOneRecord = async(request, response, next) => {
 
         RecordModel.findById(request.params.id, (error, record) => {
 
-            if (error) return handleError(error);
+            if (error) throw error;
 
             response.json(record).status(200);
 

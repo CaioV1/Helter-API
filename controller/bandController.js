@@ -40,7 +40,7 @@ exports.getBands = async(request, response, next) => {
 
         BandModel.find((error, band) => {
 
-            if(error) return handleError(error);
+            if(error) throw error;
 
             response.json(band).status(200);
 

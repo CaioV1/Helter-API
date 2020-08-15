@@ -37,7 +37,7 @@ exports.getArtists = async(req, res, next) => {
 
         ArtistModel.find((error, artist) => {
 
-            if(error) return handleError(error);
+            if(error) throw error;
 
             res.json(artist).status(200);
 
