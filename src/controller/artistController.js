@@ -4,10 +4,6 @@ exports.insertArtist = async (req, res, next) => {
 
     try {
 
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", true);
-
         const artistModel = new ArtistModel(req.body);
 
         await artistModel.save();
@@ -30,10 +26,6 @@ exports.insertArtist = async (req, res, next) => {
 exports.getArtists = async(req, res, next) => {
 
     try {
-
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", true);
 
         ArtistModel.find((error, artist) => {
 

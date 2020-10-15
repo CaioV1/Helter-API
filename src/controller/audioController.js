@@ -5,10 +5,6 @@ exports.insert = async (request, response, next) => {
 
     try {
 
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
-
         const audioModel = new AudioModel(request.body);
 
         await audioModel.save();
@@ -33,10 +29,6 @@ exports.insert = async (request, response, next) => {
 exports.getAudios = async (request, response, next) => {
 
     try {
-
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
 
         AudioModel.find((error, audio) => {
 
@@ -64,10 +56,6 @@ exports.getAudioByRecord = async (request, response, next) => {
 
     try {
 
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
-
         AudioModel.find({"record": request.params.record_id}, (error, audio) => {
 
             if(error) throw error;
@@ -93,10 +81,6 @@ exports.getAudioByRecord = async (request, response, next) => {
 exports.play = async (request, response, next) => {
 
     try {
-
-        response.setHeader("ccess-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
 
         const audio = await getAudioById(request.params.id);
 

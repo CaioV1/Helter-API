@@ -1,0 +1,26 @@
+{
+  "name": "helter-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaioV1/Helter-API.git"
+  },
+  "author": "Caio Morais",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaioV1/Helter-API/issues"
+  },
+  "homepage": "https://github.com/CaioV1/Helter-API#readme"
+}

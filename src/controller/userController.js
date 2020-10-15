@@ -4,10 +4,6 @@ exports.insertUser = async (request, response, next) => {
 
     try {
 
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
-
         const userModel = new UserModel(request.body);
 
         await userModel.save();
@@ -55,8 +51,6 @@ exports.getUsers = (request, response, next) => {
 
 exports.updateUser = (request, response, next) => {
 
-    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-
     UserModel.findByIdAndUpdate(request.body._id, request.body, (error, user) => {
 
         if(error) {
@@ -79,8 +73,6 @@ exports.updateUser = (request, response, next) => {
 }
 
 exports.deleteUser = (request, response, next) => {
-
-    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
     UserModel.findByIdAndDelete(request.body._id, (error, user) => {
 

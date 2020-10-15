@@ -4,10 +4,6 @@ exports.insertRecord = async (req, res, next) => {
 
     try {
 
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", true);
-
         const recordModel = new RecordModel(req.body);
 
         await recordModel.save();
@@ -58,10 +54,6 @@ exports.getRecords = async(req, res, next) => {
 exports.getOneRecord = async(request, response, next) => {
 
     try {
-
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
 
         RecordModel.findById(request.params.id, (error, record) => {
 

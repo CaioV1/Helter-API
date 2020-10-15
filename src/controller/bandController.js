@@ -4,10 +4,6 @@ exports.insertBand = async (request, response, next) => {
 
     try {
 
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
-
         const bandModel = new BandModel(request.body);
 
         await bandModel.save();
@@ -33,10 +29,6 @@ exports.insertBand = async (request, response, next) => {
 exports.getBands = async(request, response, next) => {
 
     try {
-
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", true);
 
         BandModel.find((error, band) => {
 
