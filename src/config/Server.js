@@ -1,3 +1,9 @@
+require("dotenv").config({
+
+    path: process.env.NODE_ENV === "test" ? ".env.test" : ".env"
+
+});
+
 //Módulo com recursos para auxiliar o desenvolvimento de aplicações WEB
 const express = require("express");
 //Módulo de conversão do corpo de uma requisição

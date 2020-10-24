@@ -6,7 +6,9 @@ exports.insertUser = async (request, response, next) => {
 
         const userModel = new UserModel(request.body);
 
-        await userModel.save();
+        const document = await userModel.save();
+
+        console.log(document);
 
         response.status(201);
         response.send("O usuário " + request.body.username + " foi salvo com sucesso.");
