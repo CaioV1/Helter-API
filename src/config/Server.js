@@ -1,3 +1,5 @@
+//require("dotenv").config();
+
 require("dotenv").config({
 
     path: process.env.NODE_ENV === "test" ? ".env.test" : ".env"
@@ -39,12 +41,21 @@ class Server {
             res.setHeader("Access-Control-Allow-Methods" , "POST, PUT, GET, DELETE");
             res.setHeader("Access-Control-Allow-Headers" , "Content-Type");
             res.setHeader("Access-Control-Allow-Credentials" , true);
+
+            databaseConnection.connectDatabase();
+
+            const afterResponse = () => {
+
+                databaseConnection.connection.close();
+    
+            }
+    
+            res.on("finish", afterResponse);
+            res.on("close", afterResponse);
         
             next();
         
         });
-
-        databaseConnection.connectDatabase();
 
     }
 
