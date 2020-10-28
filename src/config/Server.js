@@ -13,7 +13,7 @@ const bodyParser = require("body-parser");
 //Módulo para prover permissão de acesso
 const cors = require("cors");
 //Módulo de conexão com o banco de dados Mongo
-const databaseConnection = require("./DatabaseConnection");
+const DatabaseConnection = require("./DatabaseConnection");
 
 class Server {
 
@@ -41,21 +41,14 @@ class Server {
             res.setHeader("Access-Control-Allow-Methods" , "POST, PUT, GET, DELETE");
             res.setHeader("Access-Control-Allow-Headers" , "Content-Type");
             res.setHeader("Access-Control-Allow-Credentials" , true);
-
-            databaseConnection.connectDatabase();
-
-            const afterResponse = () => {
-
-                databaseConnection.connection.close();
-    
-            }
-    
-            res.on("finish", afterResponse);
-            res.on("close", afterResponse);
         
             next();
         
         });
+
+        const databaseConnection = new DatabaseConnection();
+
+        databaseConnection.connectDatabase();
 
     }
 

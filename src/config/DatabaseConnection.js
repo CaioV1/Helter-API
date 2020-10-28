@@ -15,8 +15,8 @@ class DatabaseConnection {
 
         try {
 
-            await mongoose.connect(this.connectionString, {useNewUrlParser : true});
-            this.connection = mongoose.connection;
+            this.connection = await mongoose.connect(this.connectionString, {useNewUrlParser : true});
+            //this.connection = mongoose.connection;
             
         } catch (error) {
 
@@ -29,4 +29,4 @@ class DatabaseConnection {
 
 }
 
-module.exports = new DatabaseConnection();
+module.exports = DatabaseConnection;
