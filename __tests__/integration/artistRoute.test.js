@@ -1,5 +1,6 @@
 const request = require("supertest");
 const serverConfig = require("../../src/config/Server");
+const mongoose = require("mongoose");
 
 describe("Test the artist route", () => {
 
@@ -39,5 +40,12 @@ describe("Test the artist route", () => {
             .expect(200, done);
 
     });
+
+    afterAll(done => {
+
+        mongoose.connection.close();
+        done();
+
+    })
 
 });
