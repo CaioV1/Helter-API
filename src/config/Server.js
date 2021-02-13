@@ -1,5 +1,3 @@
-//require("dotenv").config();
-
 require("dotenv").config({
 
     path: process.env.NODE_ENV === "test" ? ".env.test" : ".env"
@@ -29,6 +27,7 @@ class Server {
     setupMiddleware(){
 
         this.app.use(cors());
+        this.app.use(express.static(__dirname.replace("/src/config", "") + "/public"));
 
         //Prepara a aplicação para receber o corpo das requisições no formato x-www-form-urlencoded
         this.app.use(bodyParser.urlencoded({ extended: true }));
@@ -55,11 +54,13 @@ class Server {
     setupRoutes(){
 
         //Usando módulo com as rotas da API
-        this.app.use(require("../routes/userRoute.js").router);
-        this.app.use(require("../routes/audioRoute.js").router);
-        this.app.use(require("../routes/bandRoute.js").router);
-        this.app.use(require("../routes/artistRoute.js").router);
-        this.app.use(require("../routes/recordRoute.js").router);
+        this.app.use(
+            require("../routes/userRoute.js").router,
+            require("../routes/audioRoute.js").router,
+            require("../routes/bandRoute.js").router,
+            require("../routes/artistRoute.js").router,
+            require("../routes/recordRoute.js").router
+        );
 
     }
 

@@ -3,6 +3,12 @@ const AudioModel = require("../model/audioModel.js").audioModel;
 
 class AudioController {
 
+    constructor(){
+        
+        this.play = this.play.bind(this);
+
+    }
+
     async insert(request, response, next){
 
         try {
@@ -79,11 +85,27 @@ class AudioController {
         }
     
     }
+
+    getAudioById(id){
+    
+        return new Promise((resolve, reject)=>{
+
+            AudioModel.findById(id, (error, audio)=>{
+
+                if(error) reject(error)
+
+                resolve(audio.toJSON());
+
+            })
+
+        })
+
+    }
     
     async play(request, response, next){
     
         try {
-    
+
             const audio = await this.getAudioById(request.params.id);
     
             const file = "/Users/caiomorais/Music" + audio.file_path + audio.filename;
@@ -146,22 +168,6 @@ class AudioController {
             
         }
     
-    }
-
-    getAudioById(id){
-    
-        return new Promise((resolve, reject)=>{
-
-            AudioModel.findById(id, (error, audio)=>{
-
-                if(error) reject(error)
-
-                resolve(audio.toJSON());
-
-            })
-
-        })
-
     }
 
 }

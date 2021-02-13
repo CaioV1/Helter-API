@@ -49,6 +49,33 @@ class ArtistController {
     
     }
 
+    async removeArtist(req, res, next){
+
+        try {
+
+            ArtistModel.remove(req.paramas.id, (error) => {
+
+                if(error) throw error;
+
+                res.status(200);
+                res.send(`O Artista ${req.body.title} foi removido com sucesso.`);
+
+            });
+            
+        } catch (error) {
+
+            genericMessage = "Ocorreu um erro ao remover o artista. Segue o erro:\n";
+    
+            console.log(genericMessage);
+            console.log(error.message);
+    
+            response.status(500);
+            response.send(`${genericMessage} ${error.message}`)
+            
+        }
+
+    }
+
 }
 
 module.exports = new ArtistController();
