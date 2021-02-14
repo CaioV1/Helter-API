@@ -8,6 +8,6 @@ app.get("/api", (request, response) => {
 });
 
 //Inicia o servidor
-app.listen(5000, () => {
+app.listen(process.env.APP_PORT, () => {
   console.log("\nO servidor está rodando na porta 5000");
 });

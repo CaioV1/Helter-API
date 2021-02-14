@@ -11,7 +11,7 @@ describe("Test the artist route", () => {
             artistic_name : "Paul McCartney",
             complete_name : "James Paul McCartney",
             main_band : "5ed1bbacbdfe21180c026fa4",
-            pathImage : "../",
+            imageName : "../",
             originCountry : "Reino Unido",
             birthDate : "1942-06-18",
             
