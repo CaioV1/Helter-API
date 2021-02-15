@@ -7,7 +7,7 @@ app.get("/api", (request, response) => {
   response.send("Servidor está rodando");
 });
 
-//Inicia o servidor
+//Inicia o servidor HTTP
 app.listen(process.env.APP_PORT, () => {
   console.log("\nO servidor está rodando na porta 5000");
 });

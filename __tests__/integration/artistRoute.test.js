@@ -15,7 +15,7 @@ describe("Test the artist route", () => {
             originCountry : "Reino Unido",
             birthDate : "1942-06-18",
             
-        }
+        };
 
         request(serverConfig.app)
             .post("/api/artist")

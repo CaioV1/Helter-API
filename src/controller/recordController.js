@@ -73,7 +73,7 @@ class RecordController {
             console.log(error.message);
     
             response.status(500);
-            response.send(`${genericMessage} ${error.message}`)
+            response.send(`${genericMessage} ${error.message}`);
             
         }
     
