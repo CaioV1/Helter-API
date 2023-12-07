@@ -7,7 +7,7 @@ class BandController {
       const bandModel = new BandModel(request.body);
       await bandModel.save();
 
-      response.status(201).json({msg: `A banda ${request.body.name} foi inserida com sucesso.`});
+      response.status(201).json({msg: `The band ${request.body.name} was inserted with success.`});
     } catch (error) {
       const GENERIC_ERROR_MESSAGE = 'An error has occurred on inserting the band';
       logger.error(error.message)

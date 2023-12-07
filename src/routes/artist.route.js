@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const artistController = require("../controller/ArtistController");
+const artistController = require("../controller/artist.controller");
 
 router.post("/api/artist/", artistController.insertArtist);
 router.get("/api/artist/", artistController.getArtists);
