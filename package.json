@@ -17,8 +17,9 @@
     "supertest": "^6.3.3"
   },
   "scripts": {
-    "test": "NODE_ENV=test jest",
-    "start": "NODE_ENV=dev node index.js"
+    "start": "NODE_ENV=prod node index.js",
+    "dev": "NODE_ENV=dev node --watch index.js",
+    "test": "NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
