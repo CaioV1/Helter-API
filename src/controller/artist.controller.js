@@ -11,7 +11,7 @@ class ArtistController {
     } catch (error) {
       const GENERIC_ERROR_MESSAGE = 'An error has occurred on inserting the artist';
       logger.error(error.message)
-      response.status(500).json({error: GENERIC_ERROR_MESSAGE});
+      res.status(500).json({error: GENERIC_ERROR_MESSAGE});
     }
   }
 
@@ -22,7 +22,7 @@ class ArtistController {
     } catch (error) {
       const GENERIC_ERROR_MESSAGE = 'An error has occurred on getting the artists';
       logger.error(error.message)
-      response.status(500).json({error: GENERIC_ERROR_MESSAGE});
+      res.status(500).json({error: GENERIC_ERROR_MESSAGE});
     }
   }
 

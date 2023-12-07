@@ -35,7 +35,7 @@ class Server {
       require("../routes/audioRoute.js").router,
       require("../routes/band.route.js").router,
       require("../routes/artist.route.js").router,
-      require("../routes/recordRoute.js").router
+      require("../routes/record.route.js").router
     );
   }
 }

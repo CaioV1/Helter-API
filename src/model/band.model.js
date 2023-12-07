@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bandSchema = Schema({
-
   _band_id: Schema.Types.ObjectId,
   name: { type: String, require: true },
   originCountry: { type: String, required: true },
@@ -25,7 +24,6 @@ const bandSchema = Schema({
   created_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now },
   active: { type: Boolean, default: true }
-
 }, { collection: "band" });
 
 const bandModel = mongoose.model("BandModel", bandSchema);
