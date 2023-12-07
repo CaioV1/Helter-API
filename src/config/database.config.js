@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const logger = require('./logger.config');
 
 class DatabaseConnection {
   constructor() {
@@ -12,8 +13,7 @@ class DatabaseConnection {
     try {
       this.connection = await mongoose.connect(this.connectionString);
     } catch (error) {
-      console.log("Erro na conexão com o banco")
-      console.log(error)
+      logger.error(error.message);
     }
   }
 }

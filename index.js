@@ -1,13 +1,11 @@
-const server = require("./src/config/Server");
+const server = require("./src/config/server.config");
 
 const app = server.app;
 
-//Rota padrão para verificar se o servidor está rodando
-app.get("/api", (request, response) => {
-  response.send("Servidor está rodando");
+app.get("/api", (_request, response) => {
+  response.status(200).json({msg: "The server is running"});
 });
 
-//Inicia o servidor HTTP
 app.listen(process.env.APP_PORT, () => {
-  console.log("\nO servidor está rodando na porta 5000");
+  console.log("\nThe server is running on port 5000");
 });
