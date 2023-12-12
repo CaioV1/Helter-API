@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const audioController = require("../controller/audioController.js");
+const audioController = require("../controller/audio.controller.js");
 
 router.get("/api/audio/play/:id", audioController.play);
 router.get("/api/audio/", audioController.getAudios);

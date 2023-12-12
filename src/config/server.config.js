@@ -32,7 +32,7 @@ class Server {
   setupRoutes(){
     this.app.use(
       require("../routes/userRoute.js").router,
-      require("../routes/audioRoute.js").router,
+      require("../routes/audio.route.js").router,
       require("../routes/band.route.js").router,
       require("../routes/artist.route.js").router,
       require("../routes/record.route.js").router
