@@ -1,0 +1,29 @@
+services:
+  db:
+    image: mongo
+    restart: always
+    volumes: 
+      - ./mongo-data:/data/db
+    expose:
+      - 27017
+    networks:
+      - helter-network
+  helter-api:
+    image: helter-api
+    restart: always
+    build:
+      context: .
+      dockerfile: Helter-API/Dockerfile
+    volumes: 
+      - ./music:/home/app/music
+    ports:
+      - "5000:5000"
+    links:
+      - db
+    depends_on:
+      - db
+    networks:
+      - helter-network
+networks:
+    helter-network:
+        driver: bridge
