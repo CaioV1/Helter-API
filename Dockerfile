@@ -1,7 +1,7 @@
 FROM node:20
 WORKDIR /home/app
 
-COPY Helter-API/. .
+COPY . .
 
 RUN mkdir music && npm install
 

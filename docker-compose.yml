@@ -12,8 +12,8 @@ services:
     image: helter-api
     restart: always
     build:
-      context: .
-      dockerfile: Helter-API/Dockerfile
+      context: ./Helter-API
+      dockerfile: Dockerfile
     volumes: 
       - ./music:/home/app/music
     ports:
@@ -22,6 +22,18 @@ services:
       - db
     depends_on:
       - db
+    networks:
+      - helter-network
+  helter-front:
+    image: helter-front
+    restart: always
+    build:
+      context: ./Helter
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - helter-api
     networks:
       - helter-network
 networks:
